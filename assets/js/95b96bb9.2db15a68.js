@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[561],{4577:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Summer Health Engineering","permalink":"/blog/summer-health-engineering"}]}')}}]);

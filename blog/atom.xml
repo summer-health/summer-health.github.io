@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://summer-health.github.io/blog</id>
+    <title>Summer Health Engineering Blog</title>
+    <updated>2023-08-05T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://summer-health.github.io/blog"/>
+    <subtitle>Summer Health Engineering Blog</subtitle>
+    <icon>https://summer-health.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Summer Health Engineering]]></title>
+        <id>https://summer-health.github.io/blog/summer-health-engineering</id>
+        <link href="https://summer-health.github.io/blog/summer-health-engineering"/>
+        <updated>2023-08-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[About our engineering team]]></summary>
+        <content type="html"><![CDATA[<p><img loading="lazy" alt="Summer Health Engineering Banner" src="/assets/images/summer-health-banner-0ee08b221f4e232743b636c009d139f3.png" width="1280" height="515" class="img_ev3q"></p><p>At Summer Health, we're reinventing the world of pediatric care with a unique
+vision: to place a doctor in every parent's pocket. With an innovative platform
+that connects parents to a pediatrician within 15 minutes, our commitment to
+healthcare is as uncomplicated as sending a text message. This formidable
+challenge of integrating healthcare, technology, and convenience presents our
+team with a wealth of engineering problems. However, our growth-minded,
+problem-solving approach helps us continually rise to these challenges.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="our-growth-mindset">Our Growth Mindset<a href="#our-growth-mindset" class="hash-link" aria-label="Direct link to Our Growth Mindset" title="Direct link to Our Growth Mindset">​</a></h2><p>Central to our engineering team's philosophy is a strong growth mindset.
+Everything we do is focused on continual improvement - whether it's our
+processes, our technology stack, conventions, or even our team dynamics.
+Every team member is encouraged to contribute to this process of evolution.
+From refining code, streamlining workflows or reducing meeting redundancies,
+every bit helps to ensure we operate at peak efficiency.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="problem-solvers-not-just-delivery-engineers">Problem Solvers, Not Just Delivery Engineers<a href="#problem-solvers-not-just-delivery-engineers" class="hash-link" aria-label="Direct link to Problem Solvers, Not Just Delivery Engineers" title="Direct link to Problem Solvers, Not Just Delivery Engineers">​</a></h2><p>Another key aspect that sets us apart is that we are not just "delivery engineers"
+– we're a problem-solving team. Our engineers play an integral role in the
+creative process, defining, understanding, and formulating solutions for the
+challenges we face. This mindset takes us beyond simply delivering a product;
+it turns us into innovators, continually reshaping our approach to ensure we
+provide the best pediatric care.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="diversity-and-inclusion">Diversity and Inclusion<a href="#diversity-and-inclusion" class="hash-link" aria-label="Direct link to Diversity and Inclusion" title="Direct link to Diversity and Inclusion">​</a></h2><p>We believe in the power of diversity and inclusivity. We strive to create an
+environment where all team members can show up as their authentic selves,
+contribute their unique perspectives, and feel valued. Our team members'
+diverse backgrounds and thoughts are not just appreciated - they're essential
+to our success. The richness of ideas, viewpoints, and experiences that stem
+from this diversity fosters innovation, drives creativity, and enables us to
+solve complex problems in novel ways.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="high-collaboration-high-iteration">High Collaboration, High Iteration<a href="#high-collaboration-high-iteration" class="hash-link" aria-label="Direct link to High Collaboration, High Iteration" title="Direct link to High Collaboration, High Iteration">​</a></h2><p>Our day-to-day is highly collaborative and iterative. We implement practices
+like continuous integration, continuous delivery, and continuous deployment,
+encouraging engineers to merge multiple items to production daily. By breaking
+down features into smaller increments, we can rally around similar goals,
+accelerating our critical path quickly.</p><p>Pair programming is a cornerstone of our team culture, and we also place
+immense value on internal documentation to help each other understand ideas
+and align on conventions. We're always seeking ways to improve our productivity,
+and often, this means turning convention into automation so we can focus on
+the problems that matter most.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="into-the-future">Into the Future<a href="#into-the-future" class="hash-link" aria-label="Direct link to Into the Future" title="Direct link to Into the Future">​</a></h2><p>At Summer Health, we're leveraging technology and teamwork to transform pediatric
+care, bringing it to parents' fingertips. Our growth-minded, problem-solving
+engineering team is at the heart of this revolution, driving us forward, one
+line of code at a time. We're not just writing software; we're writing the
+future of pediatric care!</p>]]></content>
+        <author>
+            <name>Jose Rodriguez</name>
+        </author>
+        <author>
+            <name>ChatGPT</name>
+            <uri>https://chat.openai.com/</uri>
+        </author>
+        <category label="team" term="team"/>
+        <category label="engineering" term="engineering"/>
+        <category label="ai-assisted" term="ai-assisted"/>
+    </entry>
+</feed>

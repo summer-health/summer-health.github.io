@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[653],{42:e=>{e.exports=JSON.parse('{"label":"team","permalink":"/blog/tags/team","allTagsPath":"/blog/tags","count":1}')}}]);
