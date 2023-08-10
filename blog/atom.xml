@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://summer-health.github.io/blog</id>
-    <title>Summer Health Engineering Blog</title>
+    <title>Summer Health Dev Blog Blog</title>
     <updated>2023-08-10T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://summer-health.github.io/blog"/>
-    <subtitle>Summer Health Engineering Blog</subtitle>
+    <subtitle>Summer Health Dev Blog Blog</subtitle>
     <icon>https://summer-health.github.io/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[A Better Provider Experience]]></title>
+        <title type="html"><![CDATA[A Better Healthcare Experience]]></title>
         <id>https://summer-health.github.io/blog/2023/08/10/care-os</id>
         <link href="https://summer-health.github.io/blog/2023/08/10/care-os"/>
         <updated>2023-08-10T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[How we're building a world-class experience for pediatricians]]></summary>
+        <summary type="html"><![CDATA[How we're building a world-class healthcare experience for pediatricians and parents]]></summary>
         <content type="html"><![CDATA[<p>Every pediatrician knows the strain of a cluttered and convoluted Electronic
 Health Record (EHR) system. The age-old EHR systems, teeming with irrelevant
 fields and buttons, can bring back painful memories. What exacerbates this is
