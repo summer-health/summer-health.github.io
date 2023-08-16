@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[377],{465:e=>{e.exports=JSON.parse('{"label":"healthcare-tech","permalink":"/blog/tags/healthcare-tech","allTagsPath":"/blog/tags","count":1}')}}]);
