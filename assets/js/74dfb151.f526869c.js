@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[797],{8947:e=>{e.exports=JSON.parse('{"label":"system design","permalink":"/blog/tags/system-design","allTagsPath":"/blog/tags","count":1}')}}]);

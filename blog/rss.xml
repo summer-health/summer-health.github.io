@@ -4,10 +4,87 @@
         <title>Summer Health Dev Blog Blog</title>
         <link>https://summer-health.github.io/blog</link>
         <description>Summer Health Dev Blog Blog</description>
-        <lastBuildDate>Wed, 23 Aug 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 31 Aug 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Achieving 15-Minute Pediatrician Access]]></title>
+            <link>https://summer-health.github.io/blog/workflow</link>
+            <guid>https://summer-health.github.io/blog/workflow</guid>
+            <pubDate>Thu, 31 Aug 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Our system design journey with workflow engine]]></description>
+            <content:encoded><![CDATA[<p>Imagine the peace of mind of being able to connect with a pediatrician within
+just 15 minutes, around the clock, as a parent.
+That's exactly what we provide to our caregivers.
+In this blog post, I will describe how we designed the system to achieve this goal.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-challenge">The Challenge<a href="#the-challenge" class="hash-link" aria-label="Direct link to The Challenge" title="Direct link to The Challenge">​</a></h2><p>Our top priority is to promptly answer any questions or concerns
+raised by caregivers. However, we understand that our providers may not always
+be available to respond immediately.
+This presented us with a challenge:
+how do we ensure quick response times while accommodating our providers' availability?</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-solution-an-idle-monitoring-system">The Solution: An Idle Monitoring System<a href="#the-solution-an-idle-monitoring-system" class="hash-link" aria-label="Direct link to The Solution: An Idle Monitoring System" title="Direct link to The Solution: An Idle Monitoring System">​</a></h2><p>To address this challenge, we developed an idle monitoring system that
+enhances communication between caregivers and providers.
+This system operates according to a set of rules that automatically trigger
+notifications based on the duration of inactivity.</p><p>Let's take a closer look at these rules:</p><ul><li><strong>15-Minute Reminder:</strong> After the last message from a caregiver,
+an SMS should nudge the provider.</li><li><strong>30-Minute Alert:</strong> If there's been no response for 30 minutes,
+an internal Slack notification should be sent to the operations team,
+initiating manual backup provider allocation.</li><li><strong>60-Minute On-call Handover:</strong> After a full hour of silence,
+the on-call provider should receive an SMS and take over the conversation.</li></ul><p><img loading="lazy" alt="Idle monitor" src="/assets/images/idle-monitor-28e36312f2ff52dd1a2c2c06414802ca.png" width="2012" height="1172" class="img_ev3q"></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-initial-approach">The Initial Approach<a href="#the-initial-approach" class="hash-link" aria-label="Direct link to The Initial Approach" title="Direct link to The Initial Approach">​</a></h2><p>Our first design utilized <a href="https://cloud.google.com/tasks" target="_blank" rel="noopener noreferrer">Cloud Tasks</a> to
+schedule tasks. Here's how it worked:</p><ul><li>When the idle window began, we scheduled a task to trigger an event in 15 minutes.</li><li>Once the task timer fired, we checked the conversation's status and
+notified the provider accordingly.</li><li>We performed a series of checks, such as fetching conversation messages and
+verifying if the conversation was indeed in the idle window.</li><li>If confirmed, we sent a notification to the provider; otherwise, we skipped it.</li><li>Complex calculations were required to determine when the idle window commenced.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="challenges-faced">Challenges Faced<a href="#challenges-faced" class="hash-link" aria-label="Direct link to Challenges Faced" title="Direct link to Challenges Faced">​</a></h3><p>However, this initial approach brought about some challenges:</p><ul><li><strong>Task Overload:</strong> Multiple tasks were scheduled for various conversations,
+but most remained unused and ignored.</li><li><strong>Resource-Intensive:</strong> Upon task trigger, we had to fetch all conversation
+messages to determine if the conversation was idle.
+This proved resource-intensive and inefficient.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-new-design">The New Design<a href="#the-new-design" class="hash-link" aria-label="Direct link to The New Design" title="Direct link to The New Design">​</a></h2><p>In our quest to improve our idle monitoring system, we needed an easy way to
+manage state, timers, and retries. Enter workflow engines, the game-changer that
+met all our requirements.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-power-of-workflow-engines">The Power of Workflow Engines<a href="#the-power-of-workflow-engines" class="hash-link" aria-label="Direct link to The Power of Workflow Engines" title="Direct link to The Power of Workflow Engines">​</a></h3><h4 class="anchor anchorWithStickyNavbar_LWe7" id="1-simplified-state-management">1. Simplified State Management<a href="#1-simplified-state-management" class="hash-link" aria-label="Direct link to 1. Simplified State Management" title="Direct link to 1. Simplified State Management">​</a></h4><p>Workflow engines provide isolated environments, simplifying state management.
+Each workflow operates independently, making state management a breeze.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="2-effortless-timer-management">2. Effortless Timer Management<a href="#2-effortless-timer-management" class="hash-link" aria-label="Direct link to 2. Effortless Timer Management" title="Direct link to 2. Effortless Timer Management">​</a></h4><p>With workflow engines, timers become worry-free. Isolation ensures
+timers won't disrupt the application, enhancing precision and reliability.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="3-robust-retry-mechanisms">3. Robust Retry Mechanisms<a href="#3-robust-retry-mechanisms" class="hash-link" aria-label="Direct link to 3. Robust Retry Mechanisms" title="Direct link to 3. Robust Retry Mechanisms">​</a></h4><p>Workflow engines offer robust retry capabilities, ensuring system resilience.
+We can handle failures gracefully, maintaining system integrity.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="4-streamlined-code-maintenance">4. Streamlined Code Maintenance<a href="#4-streamlined-code-maintenance" class="hash-link" aria-label="Direct link to 4. Streamlined Code Maintenance" title="Direct link to 4. Streamlined Code Maintenance">​</a></h4><p>We separate state and timer code into distinct workflows,
+simplifying code maintenance, organization, and future improvements.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="visualizing-workflow-engine-in-action">Visualizing Workflow Engine in Action<a href="#visualizing-workflow-engine-in-action" class="hash-link" aria-label="Direct link to Visualizing Workflow Engine in Action" title="Direct link to Visualizing Workflow Engine in Action">​</a></h3><p>When it came to choosing a workflow engine for our system,
+we opted for <a href="https://temporal.io" target="_blank" rel="noopener noreferrer">Temporal</a> due to its dynamic features and user-friendly
+approach in conceptualizing workflow engines.
+Let's dive into the fundamental aspects of
+Temporal that played a pivotal role in our implementation.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="signals-and-activities-powering-workflow-execution">Signals and Activities: Powering Workflow Execution<a href="#signals-and-activities-powering-workflow-execution" class="hash-link" aria-label="Direct link to Signals and Activities: Powering Workflow Execution" title="Direct link to Signals and Activities: Powering Workflow Execution">​</a></h4><p>In Temporal, a <code>Signal</code> represents an event triggered by the application,
+acting as an input for the workflow. Conversely, an <code>Activity</code> represents
+an action that the workflow can execute on the application.
+These two elements serve as the backbone of our system,
+enabling seamless interaction and coordination between the workflow and the application.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="crafting-a-simplified-workflow-interface">Crafting a Simplified Workflow Interface<a href="#crafting-a-simplified-workflow-interface" class="hash-link" aria-label="Direct link to Crafting a Simplified Workflow Interface" title="Direct link to Crafting a Simplified Workflow Interface">​</a></h4><p>To encapsulate the logic of our idle monitoring system efficiently,
+we crafted a streamlined and uncluttered workflow interface.
+By keeping things simple, we established a solid foundation for managing the
+flow and interactions within our system.</p><p>Here's an example of how our workflow interface looks:</p><p>This straightforward interface acts as a wrapper for the
+idle monitoring system's logic, ensuring easy management and maintenance.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="streamlining-workflow-logic">Streamlining Workflow Logic<a href="#streamlining-workflow-logic" class="hash-link" aria-label="Direct link to Streamlining Workflow Logic" title="Direct link to Streamlining Workflow Logic">​</a></h4><p>Temporal excels in simplifying workflow logic. Within our workflow,
+we focused solely on tracking state changes and reacting to timers,
+making the implementation straightforward and efficient.
+By abstracting the complexities of managing workflow execution and coordination,
+Temporal empowered us to concentrate on the core functionality of our system.</p><p>By harnessing Temporal's capabilities, we created a highly efficient and
+streamlined workflow engine that powers our idle monitoring system.
+Easing the implementation process with its user-friendly approach,
+Temporal allowed us to focus on delivering a reliable and effective solution.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="real-world-applications">Real-World Applications<a href="#real-world-applications" class="hash-link" aria-label="Direct link to Real-World Applications" title="Direct link to Real-World Applications">​</a></h2><p>Workflow engines have proven to be incredibly versatile,
+offering benefits beyond just idle monitoring.
+By incorporating workflow engines into our system,
+we have not only optimized our processes but also unlocked new possibilities
+for efficient and resilient system design.</p><p>Let's explore some real-world applications that we are currently using:</p><p><strong>Long-Running Data Exports:</strong>
+Workflow engines excel in managing complex data
+export tasks that require substantial time and resources.
+By leveraging the capabilities of a workflow engine,
+we can efficiently handle and track the progress of these lengthy data exports,
+ensuring their successful completion.</p><p><strong>Data Quality Audits and Reconciliations:</strong>
+Workflow engines provide a systematic approach to performing data quality
+audits and reconciliations. With the ability to define and execute a series of
+steps, workflow engines enable us to validate data integrity, identify
+discrepancies, and reconcile any inconsistencies quickly and accurately.</p><p><strong>Idempotent Multi-Step Transactions:</strong>
+Workflow engines are adept at handling multi-step transactions that need to be
+executed reliably and idempotently. Whether it's managing subscription and
+registration processes or coordinating complex financial transactions,
+workflow engines ensure that each step is executed atomically, maintaining
+data consistency and preventing any unintended side effects.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2><p>By embracing workflow engines, we have not only optimized our existing system
+but also opened doors to new possibilities in designing efficient and
+resilient systems. The versatility and flexibility of workflow engines make
+them indispensable tools in solving complex problems and orchestrating
+intricate processes.</p>]]></content:encoded>
+            <category>workflow</category>
+            <category>system design</category>
+        </item>
         <item>
             <title><![CDATA[Why We Use MUI]]></title>
             <link>https://summer-health.github.io/blog/2023/08/23/why-we-use-mui</link>
@@ -54,7 +131,7 @@ future blog post.</p><p>Thanks to Storybook we have been able to provide a story
 and their definition with our cross-functional team.</p><p><img loading="lazy" alt="Colors" src="/assets/images/colors-eff79ecd991419f9b0134469c227eb16.png" width="872" height="1550" class="img_ev3q"></p><p>We are also able to showcase our various button variants.</p><p><img loading="lazy" alt="Buttons" src="/assets/images/buttons-ce0ec63b71de1c0ac540e00f888eb5b4.png" width="1798" height="1546" class="img_ev3q"></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="wrapping-up">Wrapping up<a href="#wrapping-up" class="hash-link" aria-label="Direct link to Wrapping up" title="Direct link to Wrapping up">​</a></h2><p>Tailwind has been growing in popularity and can offer engineering teams a way of
 quickly building out scalable efficient pages. However, MUI offers a highly customizable
 theming system to build consistent layouts with an extensive library of prebuilt
-components that have allowed us to build our latest features quickly and consistently.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="additional-reading-material">Additional reading material<a href="#additional-reading-material" class="hash-link" aria-label="Direct link to Additional reading material" title="Direct link to Additional reading material">​</a></h2><ul><li><a href="https://m3.material.io/styles" target="_blank" rel="noopener noreferrer">Material Design Styles</a></li><li><a href="https://storybook.js.org/docs/react/get-started/why-storybook" target="_blank" rel="noopener noreferrer">Why Storybook</a></li><li><a href="https://mui.com/material-ui/getting-started/" target="_blank" rel="noopener noreferrer">Material UI - Overview</a></li><li><a href="https://blog.logrocket.com/guide-material-design-react/" target="_blank" rel="noopener noreferrer">A guide to material design with react</a></li><li><a href="https://blog.openreplay.com/material-ui-vs-tailwind-css/#:~:text=Theming%3A%20Material%20UI%20provides%20powerful,editing%20the%20classes%20upon%20usage." target="_blank" rel="noopener noreferrer"></a></li></ul>]]></content:encoded>
+components that have allowed us to build our latest features quickly and consistently.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="additional-reading-material">Additional reading material<a href="#additional-reading-material" class="hash-link" aria-label="Direct link to Additional reading material" title="Direct link to Additional reading material">​</a></h2><ul><li><a href="https://m3.material.io/styles" target="_blank" rel="noopener noreferrer">Material Design Styles</a></li><li><a href="https://storybook.js.org/docs/react/get-started/why-storybook" target="_blank" rel="noopener noreferrer">Why Storybook</a></li><li><a href="https://mui.com/material-ui/getting-started/" target="_blank" rel="noopener noreferrer">Material UI - Overview</a></li><li><a href="https://blog.logrocket.com/guide-material-design-react/" target="_blank" rel="noopener noreferrer">A guide to material design with react</a></li><li><a href="https://blog.openreplay.com/material-ui-vs-tailwind-css/#:~:text=Theming%3A%20Material%20UI%20provides%20powerful,editing%20the%20classes%20upon%20usage." target="_blank" rel="noopener noreferrer">Material UI Vs Tailwind CSS</a></li></ul>]]></content:encoded>
             <category>engineering</category>
             <category>mui</category>
             <category>storybook</category>
