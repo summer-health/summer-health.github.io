@@ -4,10 +4,21 @@
         <title>Summer Health Dev Blog Blog</title>
         <link>https://summer-health.github.io/blog</link>
         <description>Summer Health Dev Blog Blog</description>
-        <lastBuildDate>Thu, 31 Aug 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Oct 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Summer Health Q3 Offsite]]></title>
+            <link>https://summer-health.github.io/blog/company-q3-offsite-sonoma-2023</link>
+            <guid>https://summer-health.github.io/blog/company-q3-offsite-sonoma-2023</guid>
+            <pubDate>Wed, 04 Oct 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Why we gathering together as a company quarterly]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="Engineering Team" src="/assets/images/engineering-team-6ca2139e719fcdcddc0391f7ca4645e6.jpeg" width="1024" height="768" class="img_ev3q"></p><p>One our core beliefs at Summer Health is that if we want do something as ambitious as to define a new standard of care we need our entire team to have <strong>mission-driven empathy.</strong> It is only with this mindset that we can create a compelling vision of what that world looks like, why it matters and <strong>work backwards</strong> on how we can make it reality.</p><p>That's why for 4 days in September we brought the entire team across product, engineering, marketing and business operations to Sonoma where we:</p><ol><li>Learned from the history of telemedicine and discussed how we would not just build something better but transcend it</li><li>Defined what a 10 star experience for both our patients and the doctors</li><li>Participated in a brand workshop to help reinforce how we need to show up in the market and throughout our entire product experience.</li></ol><p><img loading="lazy" alt="Company Dinner" src="/assets/images/company-dinner-e20a10c8a9b16f23ebd9b772a8ae1448.jpeg" width="1024" height="769" class="img_ev3q"></p><p>While it may seem like a huge time commitment for the entire team, offsites like this empower our team to see the big picture and consistently make the right micro decisions to help make our vision a reality.</p><p>It also doesn't hurt that we had fun cooking dinner together, making smores and wine tasting.</p><p><img loading="lazy" alt="Wine Tasting" src="/assets/images/wine-tasting-6dcbdf062dce698aaa6fc6c21964934b.jpeg" width="768" height="1024" class="img_ev3q"></p>]]></content:encoded>
+            <category>team</category>
+            <category>summer-health</category>
+            <category>offsites</category>
+        </item>
         <item>
             <title><![CDATA[Achieving 15-Minute Pediatrician Access]]></title>
             <link>https://summer-health.github.io/blog/workflow</link>

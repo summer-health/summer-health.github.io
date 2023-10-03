@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[7208],{7179:e=>{e.exports=JSON.parse('{"label":"offsites","permalink":"/blog/tags/offsites","allTagsPath":"/blog/tags","count":1}')}}]);
