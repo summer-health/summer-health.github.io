@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[5975],{6856:e=>{e.exports=JSON.parse('{"label":"hoc","permalink":"/blog/tags/hoc","allTagsPath":"/blog/tags","count":1}')}}]);
