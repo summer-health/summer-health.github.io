@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[9449],{6524:e=>{e.exports=JSON.parse('{"label":"summer-health","permalink":"/blog/tags/summer-health","allTagsPath":"/blog/tags","count":1}')}}]);

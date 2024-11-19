@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkexternal_blog=self.webpackChunkexternal_blog||[]).push([[4430],{1385:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/team","page":1,"postsPerPage":10,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
